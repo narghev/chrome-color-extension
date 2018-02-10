@@ -1,6 +1,12 @@
 # Chrome color modifier
 
-<a href="https://google.com"><img src="https://github.com/narghev/chrome-color-extension/blob/master/img/icon.png?raw=true" width="150" height="150"></a>
+<a href="https://google.com">
+  <img
+    src="https://github.com/narghev/chrome-color-extension/blob/master/img/icon.png?raw=true"
+    width="150"
+    height="150"
+  />
+</a>
 
 Chrome color modifier is a chrome extension that allows the user to change the colors of a webpage.
 
