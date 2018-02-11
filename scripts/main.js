@@ -6,5 +6,11 @@
 // document.head.appendChild(style);
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
-  console.log(request);
+  const {type} = request;
+
+  switch (type){
+    case 'inspector_on':
+      inspector_on();
+      break;
+  }
 });
