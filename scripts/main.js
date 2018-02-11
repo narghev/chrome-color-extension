@@ -9,8 +9,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
   const {type} = request;
 
   switch (type){
-    case 'inspector_on':
-      inspector_on();
-      break;
+  case 'inspector_on':
+    inspector_on();
+    break;
   }
 });
