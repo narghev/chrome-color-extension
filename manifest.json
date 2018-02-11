@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["scripts/style_maker.js","scripts/main.js"]
+      "js": ["scripts/helper.js","scripts/main.js"]
     }
   ],
   "permissions": [
