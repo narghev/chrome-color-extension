@@ -21,5 +21,5 @@ Chrome color modifier is a chrome extension that allows the user to change the c
   - Open google chrome, navigate to `chrome://extensions`
   - Enable the developer mode
   - Load unpacked extension
-  - Open the cloned folder with the file navigator
+  - Open the extension folder from the cloned repository
   - Enjoy your favorite colors !!!
