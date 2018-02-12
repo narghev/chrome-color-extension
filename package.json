@@ -1,0 +1,15 @@
+{
+  "name": "chrome-color-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension for changing website element colors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narghev/chrome-color-extension.git"
+  },
+  "author": "Narek Ghevandiani",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/narghev/chrome-color-extension/issues"
+  },
+  "homepage": "https://github.com/narghev/chrome-color-extension#readme"
+}
