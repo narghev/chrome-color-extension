@@ -32,7 +32,7 @@ const elementFocusClickHandler = (event) => {
 const inspectorOn = () => {
   document.addEventListener('mousemove', mousemoveHandler);
   document.addEventListener('click', elementFocusClickHandler);
-}
+};
 
 const inspectorOff = () => {
 
