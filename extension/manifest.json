@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["lib/bundle.js", "scripts/helper.js", "scripts/main.js"]
+      "js": ["scripts/helper.js", "scripts/main.js", "lib/bundle.js"]
     }
   ],
   "permissions": [

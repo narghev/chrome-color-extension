@@ -5,7 +5,9 @@
 
 // document.head.appendChild(style);
 
-console.log(ColorWheel);
+const colorWheelRootElement = document.createElement('div');
+colorWheelRootElement.setAttribute('id', 'colorWheelRootElemet');
+document.body.appendChild(colorWheelRootElement);
 
 let elementInFocus = null;
 let prevElementInFocus = null;
