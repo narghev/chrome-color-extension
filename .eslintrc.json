@@ -3,6 +3,11 @@
         "browser": true,
         "es6": true
     },
+    "ecmaFeatures": {
+        "modules": true,
+        "spread" : true,
+        "restParams" : true
+    },
     "rules": {
         "indent": [
             "error",
@@ -20,5 +25,11 @@
             "error",
             "always"
         ]
-    }
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ]
 }
