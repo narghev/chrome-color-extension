@@ -13,6 +13,7 @@ colorPickerRootElementStyle.innerHTML = `
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 999999;
   }
 `;
 document.head.appendChild(colorPickerRootElementStyle); // append it to the head
