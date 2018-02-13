@@ -5,6 +5,8 @@
 
 // document.head.appendChild(style);
 
+console.log(ColorWheel);
+
 let elementInFocus = null;
 let prevElementInFocus = null;
 let focusedElement = null;

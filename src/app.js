@@ -1,0 +1,1 @@
+import ColorWheel from './components/color_wheel';
