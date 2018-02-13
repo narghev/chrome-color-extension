@@ -1,5 +1,5 @@
 // declare some global variables
-let elementInFocus = null;
+let hoveredElement = null;
 let prevElementInFocus = null;
 let focusedElement = null;
 
@@ -15,7 +15,6 @@ colorPickerRootElementStyle.innerHTML = `
     height: 100%;
   }
 `;
-
 document.head.appendChild(colorPickerRootElementStyle); // append it to the head
 
 
@@ -36,17 +35,19 @@ const mousemoveHandler = () => {
   const hoveredElements = document.querySelectorAll(':hover');
 
   if (hoveredElements.length > 0){
-    prevElementInFocus = elementInFocus;
-    elementInFocus = hoveredElements[hoveredElements.length - 1];
-    elementInFocus.style.outline = '#db1111 solid 2px';
-    elementInFocus.style.backgroundColor = '#f2d793';
+    prevElementInFocus = hoveredElement;
+    hoveredElement = hoveredElements[hoveredElements.length - 1];
+    hoveredElement.style.outline = '#db1111 solid 2px';
+    hoveredElement.style.backgroundColor = '#f2d793';
   }
 };
 
 // picking an element to modify the colors
-const elementFocusClickHandler = (event) => {
-  elementInFocus.style.outline = '';
-  elementInFocus.style.backgroundColor = '';
+const elementFocusClickHandler = event => {
+  if (!hoveredElement) return;
+
+  hoveredElement.style.outline = '';
+  hoveredElement.style.backgroundColor = '';
 
   prevElementInFocus.style.outline = '';
   prevElementInFocus.style.backgroundColor = '';
@@ -54,17 +55,6 @@ const elementFocusClickHandler = (event) => {
   document.removeEventListener('mousemove', mousemoveHandler);
   document.removeEventListener('click', elementFocusClickHandler);
 
-  focusedElement = event.target;
+  hoveredElement = event.target;
+  colorPickerRootElement.style = 'display: block';
 };
-
-// add the listener, to listen to incoming msg-s from the extension popup
-chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
-  const {type} = request;
-
-  switch (type){
-  case 'inspector_on':
-    document.addEventListener('mousemove', mousemoveHandler);
-    document.addEventListener('click', elementFocusClickHandler);
-    break;
-  }
-});
