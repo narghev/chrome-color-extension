@@ -28,6 +28,6 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "webpack": "webpack"
+    "webpack": "webpack -p"
   }
 }
