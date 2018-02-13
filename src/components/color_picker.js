@@ -13,14 +13,15 @@ class ColorPickerWrapper extends React.PureComponent {
   }
 
   onChange = color => {
-    console.log(color.rgb);
     this.setState({color: color.rgb});
   }
 
   render(){
     const {color} = this.state;
     return (
-      <ChromePicker {...{color, onChange: this.onChange}}/>
+      <div className='color-picker-wrapper-div'>
+        <ChromePicker {...{color, onChange: this.onChange}}/>
+      </div>
     );
   }
 }

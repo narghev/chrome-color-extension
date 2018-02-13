@@ -4,4 +4,4 @@ import ColorPickerWrapper from './components/color_picker';
 
 import './style.scss';
 
-ReactDOM.render(<ColorPickerWrapper />, document.getElementById('colorPickerRootElemet'));
+ReactDOM.render(<ColorPickerWrapper />, document.getElementById('colorPickerRootElement'));
