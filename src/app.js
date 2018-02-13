@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ColorWheel from './components/color_wheel';
+import ColorPickerWrapper from './components/color_picker';
 
 import './style.scss';
 
-ReactDOM.render(<ColorWheel />, document.getElementById('colorWheelRootElemet'));
+ReactDOM.render(<ColorPickerWrapper />, document.getElementById('colorPickerRootElemet'));

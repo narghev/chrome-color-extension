@@ -5,9 +5,9 @@
 
 // document.head.appendChild(style);
 
-const colorWheelRootElement = document.createElement('div');
-colorWheelRootElement.setAttribute('id', 'colorWheelRootElemet');
-document.body.appendChild(colorWheelRootElement);
+const colorPickerRootElement = document.createElement('div');
+colorPickerRootElement.setAttribute('id', 'colorPickerRootElemet');
+document.body.appendChild(colorPickerRootElement);
 
 let elementInFocus = null;
 let prevElementInFocus = null;
