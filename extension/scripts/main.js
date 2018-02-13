@@ -1,10 +1,10 @@
-// const style = document.createElement('style');
+// declare some global variables
+let elementInFocus = null;
+let prevElementInFocus = null;
+let focusedElement = null;
 
-// style.innerHTML += styleMaker('.gstl_0', 'background-color', 'red');
-// style.innerHTML += styleMaker('body', 'background-color', 'blue');
 
-// document.head.appendChild(style);
-
+// Initialize the styling of color picker
 const colorPickerRootElementStyle = document.createElement('style');
 colorPickerRootElementStyle.innerHTML = `
   #colorPickerRootElement {
@@ -15,17 +15,18 @@ colorPickerRootElementStyle.innerHTML = `
     height: 100%;
   }
 `;
-document.head.appendChild(colorPickerRootElementStyle);
 
+document.head.appendChild(colorPickerRootElementStyle); // append it to the head
+
+
+// create the root element where the color picker will be attached
 const colorPickerRootElement = document.createElement('div');
 colorPickerRootElement.id = 'colorPickerRootElement';
 colorPickerRootElement.style = 'display: none';
 document.body.appendChild(colorPickerRootElement);
 
-let elementInFocus = null;
-let prevElementInFocus = null;
-let focusedElement = null;
-
+// function that handles the mouse move on the elements
+// used for highlighting the hovered element
 const mousemoveHandler = () => {
   if (!!prevElementInFocus){
     prevElementInFocus.style.outline = '';
@@ -42,6 +43,7 @@ const mousemoveHandler = () => {
   }
 };
 
+// picking an element to modify the colors
 const elementFocusClickHandler = (event) => {
   elementInFocus.style.outline = '';
   elementInFocus.style.backgroundColor = '';
@@ -55,6 +57,7 @@ const elementFocusClickHandler = (event) => {
   focusedElement = event.target;
 };
 
+// add the listener, to listen to incoming msg-s from the extension popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
   const {type} = request;
 
