@@ -3,12 +3,6 @@
         "browser": true,
         "es6": true
     },
-    "ecmaFeatures": {
-        "modules": true,
-        "spread" : true,
-        "restParams" : true,
-        "jsx": true
-    },
     "rules": {
         "indent": [
             "error",

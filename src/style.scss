@@ -1,5 +1,27 @@
-.extension-color-modifier-color-previewer {
-  width: 7vw;
-  height: 7vw;
-  border-radius: 3.5vw;
+.extension-color-modifier-app {
+
+  margin: auto;
+
+  .extension-color-modifier-color-previewer {
+    width: 225px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      border: none;
+      height: 25px;
+      border-radius: 5px;
+      width: 70px;
+      background-color: #ffffff;
+      color: #212121;
+      font-family: Tahoma, Geneva, sans-serif;
+    }
+  }
 }

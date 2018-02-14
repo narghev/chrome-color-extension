@@ -9,6 +9,7 @@ const colorPickerRootElementStyle = document.createElement('style');
 colorPickerRootElementStyle.innerHTML = `
   #extensionColorModifierColorPickerRootElement {
     position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
@@ -58,5 +59,5 @@ const elementFocusClickHandler = event => {
   document.removeEventListener('click', elementFocusClickHandler);
 
   hoveredElement = event.target;
-  colorPickerRootElement.style = 'display: block';
+  colorPickerRootElement.style = '';
 };
