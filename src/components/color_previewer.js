@@ -6,8 +6,9 @@ const ColorPreview = ({color}) => {
   return (
     <div
       className="extension-color-modifier-color-previewer"
-      style={{backgroundColor}}/>
-    );
+      style={{backgroundColor}}
+    />
+  );
 };
 
 export default ColorPreview;

@@ -6,7 +6,8 @@
     "ecmaFeatures": {
         "modules": true,
         "spread" : true,
-        "restParams" : true
+        "restParams" : true,
+        "jsx": true
     },
     "rules": {
         "indent": [
@@ -26,6 +27,7 @@
             "always"
         ]
     },
+    "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module"
     },
