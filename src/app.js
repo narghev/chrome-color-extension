@@ -28,4 +28,4 @@ class App extends React.PureComponent {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('colorPickerRootElement'));
+ReactDOM.render(<App />, document.getElementById('extensionColorModifierColorPickerRootElement'));

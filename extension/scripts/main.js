@@ -7,7 +7,7 @@ let focusedElement = null;
 // Initialize the styling of color picker
 const colorPickerRootElementStyle = document.createElement('style');
 colorPickerRootElementStyle.innerHTML = `
-  #colorPickerRootElement {
+  #extensionColorModifierColorPickerRootElement {
     position: absolute;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@ document.head.appendChild(colorPickerRootElementStyle); // append it to the head
 
 // create the root element where the color picker will be attached
 const colorPickerRootElement = document.createElement('div');
-colorPickerRootElement.id = 'colorPickerRootElement';
+colorPickerRootElement.id = 'extensionColorModifierColorPickerRootElement';
 colorPickerRootElement.style = 'display: none';
 document.body.appendChild(colorPickerRootElement);
 
