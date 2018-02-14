@@ -8,13 +8,13 @@ let focusedElement = null;
 const colorPickerRootElementStyle = document.createElement('style');
 colorPickerRootElementStyle.innerHTML = `
   #extensionColorModifierColorPickerRootElement {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 999999;
-    background-color: black;
+    background-color: rgba(33,33,33,0.95);
   }
 `;
 document.head.appendChild(colorPickerRootElementStyle); // append it to the head
