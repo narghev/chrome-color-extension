@@ -4,8 +4,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
 
   switch (type){
   case 'inspector_on':
+    document.body.oncontextmenu = () => (false);
     document.addEventListener('mousemove', mousemoveHandler);
-    document.addEventListener('click', elementFocusClickHandler);
+    document.addEventListener('mousedown', elementFocusClickHandler);
     break;
   }
 });

@@ -60,6 +60,14 @@ const elementFocusClickHandler = event => {
   document.removeEventListener('mousemove', mousemoveHandler);
   document.removeEventListener('click', elementFocusClickHandler);
 
-  hoveredElement = event.target;
+  if (event.which === 3){
+    event.preventDefault();
+    setTimeout(()=>{
+      document.body.oncontextmenu = () => (true);
+    });
+    return;
+  }
+
   colorPickerRootElement.style = '';
+  hoveredElement = event.target;
 };
