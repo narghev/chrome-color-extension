@@ -7,6 +7,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse)=>{
     document.body.oncontextmenu = () => (false);
     document.addEventListener('mousemove', mousemoveHandler);
     document.addEventListener('mousedown', elementFocusClickHandler);
+    document.addEventListener('keydown', escapeKeyPressHandler);
     break;
   }
 });

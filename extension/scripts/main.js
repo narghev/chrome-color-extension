@@ -46,10 +46,15 @@ const mousemoveHandler = () => {
   }
 };
 
-// picking an element to modify the colors
-const elementFocusClickHandler = event => {
-  if (!hoveredElement) return;
+const escapeKeyPressHandler = event => {
+  switch (event.which){
+  case 27:
+    inspector_off();
+    break;
+  }
+};
 
+const inspector_off = () => {
   hoveredElement.style.outline = '';
   hoveredElement.style.backgroundColor = '';
 
@@ -58,7 +63,15 @@ const elementFocusClickHandler = event => {
 
   document.body.style.cursor = '';
   document.removeEventListener('mousemove', mousemoveHandler);
-  document.removeEventListener('click', elementFocusClickHandler);
+  document.removeEventListener('mousedown', elementFocusClickHandler);
+  document.removeEventListener('keydown', escapeKeyPressHandler);
+};
+
+// picking an element to modify the colors
+const elementFocusClickHandler = event => {
+  if (!hoveredElement) return;
+
+  inspector_off();
 
   if (event.which === 3){
     event.preventDefault();
