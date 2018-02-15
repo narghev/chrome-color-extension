@@ -4,6 +4,8 @@ import ColorPickerWrapper from './components/color_picker_wrapper';
 import ColorPreview from './components/color_previewer';
 import Buttons from './components/buttons';
 
+import {createTheSelector} from './helper/selector';
+
 import './style.scss';
 
 class App extends React.PureComponent {
@@ -19,11 +21,20 @@ class App extends React.PureComponent {
   }
 
   cancelClickHandler = () => {
-    console.log('cancel');
+    colorPickerRootElement.style = 'display: none';
   }
 
   okClickHandler = () => {
-    console.log('ok');
+    const {r, g, b, a} = this.state.color;
+    const selector = createTheSelector(focusedElement);
+    const newStyle = document.createElement('style');
+    newStyle.innerHTML = `
+      ${selector}{
+        background-color: rgba(${r}, ${g}, ${b}, ${a}) !important;
+      }
+    `;
+    document.head.appendChild(newStyle);
+    colorPickerRootElement.style = 'display: none';
   }
 
   render(){
