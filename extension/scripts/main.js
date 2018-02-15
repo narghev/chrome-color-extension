@@ -35,6 +35,7 @@ const mousemoveHandler = () => {
     prevElementInFocus.style.backgroundColor = '';
   }
 
+  document.body.style.cursor = 'pointer';
   const hoveredElements = document.querySelectorAll(':hover');
 
   if (hoveredElements.length > 0){
@@ -55,6 +56,7 @@ const elementFocusClickHandler = event => {
   prevElementInFocus.style.outline = '';
   prevElementInFocus.style.backgroundColor = '';
 
+  document.body.style.cursor = '';
   document.removeEventListener('mousemove', mousemoveHandler);
   document.removeEventListener('click', elementFocusClickHandler);
 
