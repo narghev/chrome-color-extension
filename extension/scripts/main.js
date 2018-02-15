@@ -65,6 +65,7 @@ const inspector_off = () => {
   document.removeEventListener('mousemove', mousemoveHandler);
   document.removeEventListener('mousedown', elementFocusClickHandler);
   document.removeEventListener('keydown', escapeKeyPressHandler);
+  document.body.oncontextmenu = () => (true);
 };
 
 // picking an element to modify the colors
@@ -73,13 +74,7 @@ const elementFocusClickHandler = event => {
 
   inspector_off();
 
-  if (event.which === 3){
-    event.preventDefault();
-    setTimeout(()=>{
-      document.body.oncontextmenu = () => (true);
-    });
-    return;
-  }
+  if (event.which === 3) return;
 
   colorPickerRootElement.style = '';
   focusedElement = event.target;
