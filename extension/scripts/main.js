@@ -82,5 +82,5 @@ const elementFocusClickHandler = event => {
   }
 
   colorPickerRootElement.style = '';
-  hoveredElement = event.target;
+  focusedElement = event.target;
 };
