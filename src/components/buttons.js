@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Buttons = ({cancelClickHandler, okClickHandler}) => (
-  <div className="buttons">
-    <button onClick={cancelClickHandler}>Cancel</button>
-    <button onClick={okClickHandler}>OK!</button>
+  <div className="extension-color-modifier-buttons">
+    <button className="extension-color-modifier-button" onClick={cancelClickHandler}>Cancel</button>
+    <button className="extension-color-modifier-button" onClick={okClickHandler}>OK!</button>
   </div>
 );
 
