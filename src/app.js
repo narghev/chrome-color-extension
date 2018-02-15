@@ -9,7 +9,7 @@ import {createTheSelector} from './helper/selector';
 
 import './style.scss';
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(){
     super();
     this.state = {
