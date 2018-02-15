@@ -2,30 +2,9 @@
 let hoveredElement = null;
 let prevElementInFocus = null;
 let focusedElement = null;
+let attachTheColorPicker;
+let detachTheColorPicker;
 
-
-// Initialize the styling of color picker
-const colorPickerRootElementStyle = document.createElement('style');
-colorPickerRootElementStyle.innerHTML = `
-  #extensionColorModifierColorPickerRootElement {
-    position: fixed;
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999999;
-    background-color: rgba(33,33,33,0.95);
-  }
-`;
-document.head.appendChild(colorPickerRootElementStyle); // append it to the head
-
-
-// create the root element where the color picker will be attached
-const colorPickerRootElement = document.createElement('div');
-colorPickerRootElement.id = 'extensionColorModifierColorPickerRootElement';
-colorPickerRootElement.style = 'display: none';
-document.body.appendChild(colorPickerRootElement);
 
 // function that handles the mouse move on the elements
 // used for highlighting the hovered element
@@ -76,6 +55,6 @@ const elementFocusClickHandler = event => {
 
   if (event.which === 3) return;
 
-  colorPickerRootElement.style = '';
   focusedElement = event.target;
+  attachTheColorPicker();
 };
