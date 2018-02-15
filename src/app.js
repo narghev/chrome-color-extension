@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ColorPickerWrapper from './components/color_picker_wrapper';
 import ColorPreview from './components/color_previewer';
 import Buttons from './components/buttons';
+import IdOrClass from './components/id_or_class_radios';
 
 import {createTheSelector} from './helper/selector';
 
@@ -43,6 +44,7 @@ class App extends React.PureComponent {
       <div className="extension-color-modifier-app">
         <ColorPickerWrapper {...{color, onChange: this.onChange}} />
         <ColorPreview {...{color}} />
+        <IdOrClass />
         <Buttons {...{cancelClickHandler: this.cancelClickHandler, okClickHandler: this.okClickHandler}} />
       </div>
     ); 

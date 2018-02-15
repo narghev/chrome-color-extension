@@ -25,4 +25,14 @@
       cursor: pointer;
     }
   }
+
+  .extension-color-modifier-id-or-class-radios-wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .extension-color-modifier-id-or-class-radios-label {
+      color: red;
+    }
+  }
 }
