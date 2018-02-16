@@ -1,19 +1,19 @@
-export const createTheSelector = (element) => {
+export const createTheSelector = (element, idOrClass) => {
   let selector = '';
 
-  const elementId = element.getAttribute('id');
-  const elementClass = element.getAttribute('class');
-
-  if (elementId){
+  switch (idOrClass){
+  case 'id':
+    const elementId = element.getAttribute('id');
     selector = `#${elementId}`;
-  }
-
-  else if (elementClass){
+    break;
+  case 'class':
+    const elementClass = element.getAttribute('class');
     const classes = elementClass.split(' ');
     classes.forEach(c => {
       if (c)
         selector += `.${c}`;
     });
+    break;
   }
 
   return selector;

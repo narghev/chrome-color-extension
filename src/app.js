@@ -33,7 +33,8 @@ class App extends React.PureComponent {
 
   okClickHandler = () => {
     const {r, g, b, a} = this.state.color;
-    const selector = createTheSelector(focusedElement);
+    const {idOrClass} = this.state;
+    const selector = createTheSelector(focusedElement, idOrClass);
     const newStyle = document.createElement('style');
     newStyle.innerHTML = `
       ${selector}{
