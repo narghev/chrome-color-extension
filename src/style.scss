@@ -5,7 +5,7 @@
   .extension-color-modifier-color-previewer {
     width: 225px;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 2px;
     margin-top: 20px;
   }
 
@@ -17,10 +17,11 @@
     .extension-color-modifier-button {
       border: none;
       height: 25px;
-      border-radius: 5px;
+      border-radius: 2px;
       width: 70px;
       background-color: #ffffff;
-      color: #212121;
+      color: rgb(150, 150, 150);
+      font-size: 11px;
       font-family: Tahoma, Geneva, sans-serif;
       cursor: pointer;
     }
@@ -28,11 +29,30 @@
 
   .extension-color-modifier-id-or-class-radios-wrapper {
     margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 2px;
+
+    &>div {
+      width: 225px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
 
     .extension-color-modifier-id-or-class-radios-label {
-      color: red;
+      font-size: 11px;
+      color: rgb(150, 150, 150);
+      margin-left: 15px;
+      margin-top: 5px;
+
+      &.disabled {
+        color: #DDDDDD;
+      }
+    }
+
+    input {
+      margin-top: 9px;
+      margin-right: 15px;
     }
   }
 }
