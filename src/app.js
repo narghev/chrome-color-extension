@@ -13,7 +13,7 @@ class App extends React.PureComponent {
   constructor(){
     super();
     this.state = {
-      color: {r: 255, g: 255, b: 255, a: 1},
+      bgColor: {r: 255, g: 255, b: 255, a: 1},
       element: null,
       idOrClass: null
     };
@@ -24,7 +24,7 @@ class App extends React.PureComponent {
   }
 
   onChange = color => {
-    this.setState({color: color.rgb});
+    this.setState({bgColor: color.rgb});
   }
 
   cancelClickHandler = () => {
@@ -32,8 +32,8 @@ class App extends React.PureComponent {
   }
 
   okClickHandler = () => {
-    const {idOrClass, color} = this.state;
-    const {r, g, b, a} = color;
+    const {idOrClass, bgColor} = this.state;
+    const {r, g, b, a} = bgColor;
 
     const selector = createTheSelector(focusedElement, idOrClass);
 
@@ -44,7 +44,7 @@ class App extends React.PureComponent {
       }
     `;
     document.head.appendChild(newStyle);
-    
+
     detachTheColorPicker();
   }
 
@@ -55,11 +55,11 @@ class App extends React.PureComponent {
   }
 
   render(){
-    const {color, element, idOrClass} = this.state;
+    const {bgColor, element, idOrClass} = this.state;
     return (
       <div className="extension-color-modifier-app">
-        <ColorPickerWrapper {...{color, onChange: this.onChange}} />
-        <ColorPreview {...{color}} />
+        <ColorPickerWrapper {...{color: bgColor, onChange: this.onChange}} />
+        <ColorPreview {...{color: bgColor}} />
         <IdOrClass {...{element, idOrClass, onChange: this.radioChangeHandler}} />
         <Buttons {...{cancelClickHandler: this.cancelClickHandler, okClickHandler: this.okClickHandler}} />
       </div>
