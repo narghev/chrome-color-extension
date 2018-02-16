@@ -1,20 +1,37 @@
 .extension-color-modifier-app {
 
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .extension-color-modifier-color-picker-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    justify-content: space-between;
+  }
 
   .extension-color-modifier-color-previewer {
     width: 225px;
     height: 50px;
     border-radius: 2px;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: Tahoma, Geneva, sans-serif;
   }
 
   .extension-color-modifier-buttons {
     margin-top: 20px;
+    width: 225px;
     display: flex;
     justify-content: space-between;
 
     .extension-color-modifier-button {
+      margin: 0;
       border: none;
       height: 25px;
       border-radius: 2px;
@@ -30,6 +47,7 @@
   .extension-color-modifier-id-or-class-radios-wrapper {
     margin-top: 20px;
     height: 50px;
+    width: 225px;
     background-color: #ffffff;
     border-radius: 2px;
     display: flex;

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ColorPickerWrapper from './components/color_picker_wrapper';
 import ColorPreview from './components/color_previewer';
 import Buttons from './components/buttons';
 import IdOrClass from './components/id_or_class_radios';
+import { ChromePicker } from 'react-color';
 
 import {createTheSelector} from './helper/selector';
 
@@ -14,6 +14,7 @@ class App extends React.PureComponent {
     super();
     this.state = {
       bgColor: {r: 255, g: 255, b: 255, a: 1},
+      fontColor: {r: 0, g: 0, b: 0},
       element: null,
       idOrClass: null
     };
@@ -25,6 +26,10 @@ class App extends React.PureComponent {
 
   onBgColorChange = color => {
     this.setState({bgColor: color.rgb});
+  }
+
+  onFontColorChange = color => {
+    this.setState({fontColor: color.rgb});
   }
 
   cancelClickHandler = () => {
@@ -55,11 +60,19 @@ class App extends React.PureComponent {
   }
 
   render(){
-    const {bgColor, element, idOrClass} = this.state;
+    const {bgColor, fontColor, element, idOrClass} = this.state;
     return (
       <div className="extension-color-modifier-app">
-        <ColorPickerWrapper {...{color: bgColor, onChange: this.onBgColorChange}} />
-        <ColorPreview {...{color: bgColor}} />
+        <div className="extension-color-modifier-color-picker-wrapper">
+          <ChromePicker {...{color: bgColor, onChange: this.onBgColorChange}}/>
+          <ChromePicker {...{
+            color: fontColor,
+            onChange: this.onFontColorChange,
+            disableAlpha: true
+          }}
+          />
+        </div>
+        <ColorPreview {...{bgColor, fontColor}} />
         <IdOrClass {...{element, idOrClass, onChange: this.radioChangeHandler}} />
         <Buttons {...{cancelClickHandler: this.cancelClickHandler, okClickHandler: this.okClickHandler}} />
       </div>

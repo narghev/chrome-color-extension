@@ -1,13 +1,16 @@
 import React from 'react';
 
-const ColorPreview = ({color}) => {
-  const {r,g,b,a} = color;
-  const backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+const ColorPreview = ({bgColor, fontColor}) => {
+  const backgroundColor = `rgba(${bgColor.r}, ${bgColor.g}, ${bgColor.b}, ${bgColor.a})`;
+  const color = `rgb(${fontColor.r}, ${fontColor.g}, ${fontColor.b})`;
+
   return (
     <div
       className="extension-color-modifier-color-previewer"
-      style={{backgroundColor}}
-    />
+      style={{backgroundColor, color}}
+    >
+      Preview
+    </div>
   );
 };
 
