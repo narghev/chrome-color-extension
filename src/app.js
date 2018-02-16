@@ -32,9 +32,11 @@ class App extends React.PureComponent {
   }
 
   okClickHandler = () => {
-    const {r, g, b, a} = this.state.color;
-    const {idOrClass} = this.state;
+    const {idOrClass, color} = this.state;
+    const {r, g, b, a} = color;
+
     const selector = createTheSelector(focusedElement, idOrClass);
+
     const newStyle = document.createElement('style');
     newStyle.innerHTML = `
       ${selector}{
@@ -42,6 +44,7 @@ class App extends React.PureComponent {
       }
     `;
     document.head.appendChild(newStyle);
+    
     detachTheColorPicker();
   }
 
