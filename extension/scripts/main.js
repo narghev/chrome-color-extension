@@ -20,6 +20,12 @@ const mousemoveHandler = () => {
   if (hoveredElements.length > 0){
     prevElementInFocus = hoveredElement;
     hoveredElement = hoveredElements[hoveredElements.length - 1];
+
+    const elementClass = hoveredElement.getAttribute('class');
+    const elementId = hoveredElement.getAttribute('id');
+
+    if (!(elementClass || elementId)) return;
+
     hoveredElement.style.outline = '#db1111 solid 2px';
     hoveredElement.style.backgroundColor = '#f2d793';
   }
@@ -54,7 +60,7 @@ const elementFocusClickHandler = event => {
   const elementClass = event.target.getAttribute('class');
   const elementId = event.target.getAttribute('id');
 
-  if (!(elementClass || elementId)) alert();
+  if (!(elementClass || elementId)) return;
 
   inspector_off();
 
