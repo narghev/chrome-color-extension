@@ -37,15 +37,15 @@ class App extends React.PureComponent {
   }
 
   okClickHandler = () => {
-    const {idOrClass, bgColor} = this.state;
-    const {r, g, b, a} = bgColor;
+    const {idOrClass, bgColor, fontColor} = this.state;
 
     const selector = createTheSelector(focusedElement, idOrClass);
 
     const newStyle = document.createElement('style');
     newStyle.innerHTML = `
       ${selector}{
-        background-color: rgba(${r}, ${g}, ${b}, ${a}) !important;
+        background-color: rgba(${bgColor.r}, ${bgColor.g}, ${bgColor.b}, ${bgColor.a}) !important;
+        color: rgb(${fontColor.r}, ${fontColor.g}, ${fontColor.b}) !important;
       }
     `;
     document.head.appendChild(newStyle);
