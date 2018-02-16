@@ -51,6 +51,11 @@ const inspector_off = () => {
 const elementFocusClickHandler = event => {
   if (!hoveredElement) return;
 
+  const elementClass = event.target.getAttribute('class');
+  const elementId = event.target.getAttribute('id');
+
+  if (!(elementClass || elementId)) alert();
+
   inspector_off();
 
   if (event.which === 3) return;
