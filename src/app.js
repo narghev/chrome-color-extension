@@ -23,7 +23,7 @@ class App extends React.PureComponent {
     this.setState({idOrClass: event.target.value});
   }
 
-  onChange = color => {
+  onBgColorChange = color => {
     this.setState({bgColor: color.rgb});
   }
 
@@ -58,7 +58,7 @@ class App extends React.PureComponent {
     const {bgColor, element, idOrClass} = this.state;
     return (
       <div className="extension-color-modifier-app">
-        <ColorPickerWrapper {...{color: bgColor, onChange: this.onChange}} />
+        <ColorPickerWrapper {...{color: bgColor, onChange: this.onBgColorChange}} />
         <ColorPreview {...{color: bgColor}} />
         <IdOrClass {...{element, idOrClass, onChange: this.radioChangeHandler}} />
         <Buttons {...{cancelClickHandler: this.cancelClickHandler, okClickHandler: this.okClickHandler}} />
