@@ -1,12 +1,11 @@
 import React from 'react';
 
 export default
-class IdOrClassRadion extends React.PureComponent {
+class IdOrClassRadios extends React.PureComponent {
   render(){
-    const {element} = this.props;
+    const {element, idOrClass, onChange} = this.props;
     const elementId = element.getAttribute('id');
     const elementClass = element.getAttribute('class');
-
     if (!element) return null;
 
     return(
@@ -20,6 +19,9 @@ class IdOrClassRadion extends React.PureComponent {
           type="radio"
           name="extension-color-modifier-id-or-class-radios"
           disabled={!elementClass}
+          checked={idOrClass === 'class'}
+          onChange={onChange}
+          value="class"
         />
         <label 
           htmlFor="extension-color-modifier-id-or-class-radios-id"
@@ -30,6 +32,9 @@ class IdOrClassRadion extends React.PureComponent {
           type="radio"
           name="extension-color-modifier-id-or-class-radios"
           disabled={!elementId}
+          checked={idOrClass === 'id'}
+          onChange={onChange}
+          value="id"
         />
       </div>
     );

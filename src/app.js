@@ -14,8 +14,13 @@ class App extends React.PureComponent {
     super();
     this.state = {
       color: {r: 255, g: 255, b: 255, a: 1},
-      element: null
+      element: null,
+      idOrClass: null
     };
+  }
+
+  radioChangeHandler = (event) => {
+    this.setState({idOrClass: event.target.value});
   }
 
   onChange = color => {
@@ -40,16 +45,18 @@ class App extends React.PureComponent {
   }
 
   componentWillMount(){
-    this.setState({element: focusedElement});
+    const elementId = focusedElement.getAttribute('id') && 'id';
+    const elementClass = focusedElement.getAttribute('class') && 'class';
+    this.setState({element: focusedElement, idOrClass: elementId || elementClass});
   }
 
   render(){
-    const {color, element} = this.state;
+    const {color, element, idOrClass} = this.state;
     return (
       <div className="extension-color-modifier-app">
         <ColorPickerWrapper {...{color, onChange: this.onChange}} />
         <ColorPreview {...{color}} />
-        <IdOrClass {...{element}} />
+        <IdOrClass {...{element, idOrClass, onChange: this.radioChangeHandler}} />
         <Buttons {...{cancelClickHandler: this.cancelClickHandler, okClickHandler: this.okClickHandler}} />
       </div>
     ); 
