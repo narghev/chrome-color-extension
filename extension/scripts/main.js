@@ -1,6 +1,5 @@
 // declare some global variables
 let hoveredElement = null;
-let prevElementInFocus = null;
 let focusedElement = null;
 let attachTheColorPicker;
 let detachTheColorPicker;
@@ -9,16 +8,16 @@ let detachTheColorPicker;
 // function that handles the mouse move on the elements
 // used for highlighting the hovered element
 const mousemoveHandler = () => {
-  if (!!prevElementInFocus){
-    prevElementInFocus.style.outline = '';
-    prevElementInFocus.style.backgroundColor = '';
+  if (!!hoveredElement){
+    hoveredElement.style.outline = '';
+    hoveredElement.style.backgroundColor = '';
+    hoveredElement = null;
   }
 
   document.body.style.cursor = 'pointer';
   const hoveredElements = document.querySelectorAll(':hover');
 
   if (hoveredElements.length > 0){
-    prevElementInFocus = hoveredElement;
     hoveredElement = hoveredElements[hoveredElements.length - 1];
 
     const elementClass = hoveredElement.getAttribute('class');
@@ -42,9 +41,6 @@ const escapeKeyPressHandler = event => {
 const inspector_off = () => {
   hoveredElement.style.outline = '';
   hoveredElement.style.backgroundColor = '';
-
-  prevElementInFocus.style.outline = '';
-  prevElementInFocus.style.backgroundColor = '';
 
   document.body.style.cursor = '';
   document.removeEventListener('mousemove', mousemoveHandler);

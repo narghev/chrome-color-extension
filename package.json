@@ -34,5 +34,8 @@
   "scripts": {
     "start": "webpack --colors --progress --watch",
     "lint": "./node_modules/.bin/eslint ."
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.15"
   }
 }
