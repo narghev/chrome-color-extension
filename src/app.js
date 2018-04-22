@@ -21,7 +21,8 @@ class App extends React.PureComponent {
       bgColor: {r: 255, g: 255, b: 255, a: 1},
       fontColor: {r: 0, g: 0, b: 0},
       element: focusedElement,
-      idOrClass: elementId || elementClass
+      idOrClass: elementId || elementClass,
+      backgroundOrFont: 'bg'
     };
   }
 
@@ -59,18 +60,18 @@ class App extends React.PureComponent {
   }
 
   render(){
-    const {bgColor, fontColor, element, idOrClass} = this.state;
+    const {bgColor, fontColor, element, idOrClass, backgroundOrFont} = this.state;
+
+    const bg = backgroundOrFont === 'bg';
+    const colorPickerOptions = {
+      color: bg ? bgColor : fontColor,
+      onChange: bg ? this.onBgColorChange : this.onFontColorChange,
+      disableAlpha: !bg 
+    };
+
     return (
       <div className="extension-color-modifier-app">
-        <div className="extension-color-modifier-color-picker-wrapper">
-          <ChromePicker {...{color: bgColor, onChange: this.onBgColorChange}}/>
-          <ChromePicker {...{
-            color: fontColor,
-            onChange: this.onFontColorChange,
-            disableAlpha: true
-          }}
-          />
-        </div>
+        <ChromePicker {...colorPickerOptions}/>
         <ColorPreview {...{bgColor, fontColor}} />
         <IdOrClass {...{element, idOrClass, onChange: this.radioChangeHandler}} />
         <Buttons {...{cancelClickHandler: this.cancelClickHandler, okClickHandler: this.okClickHandler}} />
