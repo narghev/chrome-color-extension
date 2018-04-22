@@ -1,9 +1,10 @@
 import React from 'react';
+import { Button } from 'antd';
 
 const Buttons = ({cancelClickHandler, okClickHandler}) => (
   <div className="extension-color-modifier-buttons">
-    <button className="extension-color-modifier-button" onClick={cancelClickHandler}>Cancel</button>
-    <button className="extension-color-modifier-button" onClick={okClickHandler}>OK!</button>
+    <Button type="danger" onClick={cancelClickHandler} >Cancel</Button>
+    <Button type="primary" onClick={okClickHandler} >OK!</Button>
   </div>
 );
 
