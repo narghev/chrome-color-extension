@@ -12,11 +12,15 @@ import './style.scss';
 class App extends React.PureComponent {
   constructor(){
     super();
+
+    const elementId = focusedElement.getAttribute('id') && 'id';
+    const elementClass = focusedElement.getAttribute('class') && 'class';
+
     this.state = {
       bgColor: {r: 255, g: 255, b: 255, a: 1},
       fontColor: {r: 0, g: 0, b: 0},
-      element: null,
-      idOrClass: null
+      element: focusedElement,
+      idOrClass: elementId || elementClass
     };
   }
 
@@ -51,12 +55,6 @@ class App extends React.PureComponent {
     document.head.appendChild(newStyle);
 
     detachTheColorPicker();
-  }
-
-  componentWillMount(){
-    const elementId = focusedElement.getAttribute('id') && 'id';
-    const elementClass = focusedElement.getAttribute('class') && 'class';
-    this.setState({element: focusedElement, idOrClass: elementId || elementClass});
   }
 
   render(){
@@ -103,9 +101,4 @@ attachTheColorPicker = () => {
   colorPickerRootElement.id = 'extensionColorModifierColorPickerRootElement';
   document.body.appendChild(colorPickerRootElement);
   ReactDOM.render(<App />, document.getElementById('extensionColorModifierColorPickerRootElement'));
-};
-
-detachTheColorPicker = () => {
-  const colorPickerRootElement = document.getElementById('extensionColorModifierColorPickerRootElement');
-  document.body.removeChild(colorPickerRootElement);
 };

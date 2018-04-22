@@ -1,9 +1,6 @@
 // declare some global variables
 let hoveredElement = null;
 let focusedElement = null;
-let attachTheColorPicker;
-let detachTheColorPicker;
-
 
 // function that handles the mouse move on the elements
 // used for highlighting the hovered element
