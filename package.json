@@ -13,6 +13,7 @@
   },
   "homepage": "https://github.com/narghev/chrome-color-extension#readme",
   "dependencies": {
+    "antd": "^3.4.2",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",

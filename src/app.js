@@ -8,6 +8,7 @@ import { ChromePicker } from 'react-color';
 import {createTheSelector} from './helper/selector';
 
 import './style.scss';
+import 'antd/dist/antd.css';
 
 class App extends React.PureComponent {
   constructor(){

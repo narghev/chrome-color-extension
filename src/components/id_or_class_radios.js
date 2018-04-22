@@ -1,4 +1,6 @@
 import React from 'react';
+import { Radio } from 'antd';
+const RadioGroup = Radio.Group;
 
 const IdOrClassRadios = ({element, idOrClass, onChange}) => {
   const elementId = element.getAttribute('id');
@@ -6,42 +8,14 @@ const IdOrClassRadios = ({element, idOrClass, onChange}) => {
 
   if (!element) return null;
 
+  console.log(elementId, elementClass)
+
   return (
     <div className="extension-color-modifier-id-or-class-radios-wrapper">
-      <div>
-        <label
-          htmlFor="extension-color-modifier-id-or-class-radios-class"
-          className={`extension-color-modifier-id-or-class-radios-label ${!elementId && 'disabled'}`}
-        >
-          Modify this particular element
-        </label>
-        <input
-          id="extension-color-modifier-id-or-class-radios-class"
-          type="radio"
-          name="extension-color-modifier-id-or-class-radios"
-          disabled={!elementId}
-          checked={idOrClass === 'id'}
-          onChange={onChange}
-          value="id"
-        />
-      </div>
-      <div>
-        <label 
-          htmlFor="extension-color-modifier-id-or-class-radios-id"
-          className={`extension-color-modifier-id-or-class-radios-label ${!elementClass && 'disabled'}`}
-        >
-          Modify this and similar elements
-        </label>
-        <input
-          id="extension-color-modifier-id-or-class-radios-id"
-          type="radio"
-          name="extension-color-modifier-id-or-class-radios"
-          disabled={!elementClass}
-          checked={idOrClass === 'class'}
-          onChange={onChange}
-          value="class"
-        />
-      </div>
+      <RadioGroup {...{onChange, value: idOrClass}}>
+        <Radio value="id" disabled={!elementId} >Modify this particular element</Radio>
+        <Radio value="class" disabled={!elementClass}>Modify this and similar elements</Radio>
+      </RadioGroup>
     </div>
   );
 };
