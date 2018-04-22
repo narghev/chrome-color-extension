@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ColorPreview from './components/color_previewer';
 import Buttons from './components/buttons';
 import IdOrClass from './components/id_or_class_radios';
+import BgOrFont from './components/bg_or_font_switch';
 import { ChromePicker } from 'react-color';
 
 import {createTheSelector} from './helper/selector';
@@ -26,8 +27,12 @@ class App extends React.PureComponent {
     };
   }
 
-  radioChangeHandler = (event) => {
+  radioChangeHandler = event => {
     this.setState({idOrClass: event.target.value});
+  }
+
+  switchChangeHandler = checked => {
+    this.setState({backgroundOrFont: checked ? 'bg' : 'font'});
   }
 
   onBgColorChange = color => {
@@ -72,6 +77,7 @@ class App extends React.PureComponent {
     return (
       <div className="extension-color-modifier-app">
         <ChromePicker {...colorPickerOptions}/>
+        <BgOrFont {...{onChange: this.switchChangeHandler, backgroundOrFont}}/>
         <ColorPreview {...{bgColor, fontColor}} />
         <IdOrClass {...{element, idOrClass, onChange: this.radioChangeHandler}} />
         <Buttons {...{cancelClickHandler: this.cancelClickHandler, okClickHandler: this.okClickHandler}} />
