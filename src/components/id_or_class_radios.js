@@ -8,8 +8,6 @@ const IdOrClassRadios = ({element, idOrClass, onChange}) => {
 
   if (!element) return null;
 
-  console.log(elementId, elementClass)
-
   return (
     <div className="extension-color-modifier-id-or-class-radios-wrapper">
       <RadioGroup {...{onChange, value: idOrClass}}>
