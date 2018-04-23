@@ -5,6 +5,13 @@ const styleMaker = (element, attribute, value) => {
   return `${element} { ${attribute}: ${value} !important;}\n`;
 };
 
+let clearConfig = () => {
+  chrome.storage.sync.remove(`extensionColorModifierConfig-${page}`);
+  
+  const styleTag = document.getElementById('extensionColorModifierStyleTag');
+  styleTag && styleTag.remove();
+};
+
 const save = ({selector, bgColor, fontColor}) => {
   let currentConfig;
   chrome.storage.sync.get(`extensionColorModifierConfig-${page}`, currentConfigObj => {
