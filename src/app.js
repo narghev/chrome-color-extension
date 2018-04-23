@@ -15,6 +15,15 @@ class App extends React.PureComponent {
   constructor(){
     super();
 
+    const styleTag = document.getElementById('extensionColorModifierStyleTag');
+    if (!styleTag){
+      this.styleTag = document.createElement('style');
+      this.styleTag.id = 'extensionColorModifierStyleTag';
+      document.head.appendChild(this.styleTag);
+    } else {
+      this.styleTag = styleTag;
+    }
+
     const elementId = focusedElement.getAttribute('id') && 'id';
     const elementClass = focusedElement.getAttribute('class') && 'class';
 
@@ -52,14 +61,12 @@ class App extends React.PureComponent {
 
     const selector = createTheSelector(focusedElement, idOrClass);
 
-    const newStyle = document.createElement('style');
-    newStyle.innerHTML = `
+    this.styleTag.innerHTML += `
       ${selector}{
         background-color: rgba(${bgColor.r}, ${bgColor.g}, ${bgColor.b}, ${bgColor.a}) !important;
         color: rgb(${fontColor.r}, ${fontColor.g}, ${fontColor.b}) !important;
       }
     `;
-    document.head.appendChild(newStyle);
 
     save({selector, bgColor, fontColor});
 
