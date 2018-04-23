@@ -1,3 +1,6 @@
+// Add the styles to dom from storage
+initConfigs();
+
 // declare some global variables
 let hoveredElement = null;
 let focusedElement = null;
