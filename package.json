@@ -33,7 +33,7 @@
     "webpack": "^4.6.0"
   },
   "scripts": {
-    "start": "webpack --colors --progress --watch",
+    "start": "webpack --mode=development --colors --progress --watch",
     "lint": "./node_modules/.bin/eslint ."
   },
   "devDependencies": {
