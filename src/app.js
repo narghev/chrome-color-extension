@@ -61,6 +61,8 @@ class App extends React.PureComponent {
     `;
     document.head.appendChild(newStyle);
 
+    save({selector, bgColor, fontColor});
+
     detachTheColorPicker();
   }
 
