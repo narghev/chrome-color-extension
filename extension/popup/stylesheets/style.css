@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 270px;
+  height: 70px;
+  background-color: #FFFDE7;
+}
+
+body span {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+body span:hover {
+  font-weight: 700;
+}
+
+#inspector {
+  color: #0D47A1;
+}
+
+#clear_config {
+  color: #E53935;
+}
