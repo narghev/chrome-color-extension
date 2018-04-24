@@ -12,7 +12,12 @@
     "url": "https://github.com/narghev/chrome-color-extension/issues"
   },
   "homepage": "https://github.com/narghev/chrome-color-extension#readme",
-  "dependencies": {
+  "scripts": {
+    "start": "webpack --mode=development --colors --progress --watch",
+    "build": "webpack --config webpack.prod.js --colors",
+    "lint": "./node_modules/.bin/eslint ."
+  },
+  "devDependencies": {
     "antd": "^3.4.2",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
@@ -30,13 +35,7 @@
     "react-dom": "^16.3.2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
-    "webpack": "^4.6.0"
-  },
-  "scripts": {
-    "start": "webpack --mode=development --colors --progress --watch",
-    "lint": "./node_modules/.bin/eslint ."
-  },
-  "devDependencies": {
+    "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15"
   }
 }
